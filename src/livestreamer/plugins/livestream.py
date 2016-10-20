@@ -91,24 +91,24 @@ class Livestream(Plugin):
             # Stream is not live
             return
 
-        play_url = stream_info.get("play_url")
-        if play_url:
-            swf_url = info.get("playerUri")
-            if swf_url:
-                if not swf_url.startswith("http"):
-                    swf_url = "http://" + swf_url
+        #play_url = stream_info.get("play_url")
+        #if play_url:
+        #    swf_url = info.get("playerUri")
+        #    if swf_url:
+        #        if not swf_url.startswith("http"):
+        #            swf_url = "http://" + swf_url
 
-                # Work around broken SSL.
-                swf_url = swf_url.replace("https://", "http://")
+        #        # Work around broken SSL.
+        #        swf_url = swf_url.replace("https://", "http://")
 
-            qualities = stream_info["qualities"]
-            for bitrate, stream in self._parse_smil(play_url, swf_url):
-                name = "{0}k".format(bitrate / 1000)
-                for quality in qualities:
-                    if quality["bitrate"] == bitrate:
-                        name = "{0}p".format(quality["height"])
+        #    qualities = stream_info["qualities"]
+        #    for bitrate, stream in self._parse_smil(play_url, swf_url):
+        #        name = "{0}k".format(bitrate / 1000)
+        #        for quality in qualities:
+        #            if quality["bitrate"] == bitrate:
+        #                name = "{0}p".format(quality["height"])
 
-                yield name, stream
+        #        yield name, stream
 
         m3u8_url = stream_info.get("m3u8_url")
         if m3u8_url:
