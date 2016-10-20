@@ -45,7 +45,7 @@ if environ.get("NO_DEPS"):
 srcdir = join(dirname(abspath(__file__)), "src/")
 sys_path.insert(0, srcdir)
 
-setup(name="livestreamer",
+setup(name="livestreamer-yodeck",
       version="1.13.1",
       description="Livestreamer is command-line utility that extracts streams "
                   "from various services and pipes them into a video player of "
